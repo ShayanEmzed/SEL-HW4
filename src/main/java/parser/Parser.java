@@ -23,7 +23,8 @@ public class Parser {
         parsStack = new Stack<Integer>();
         parsStack.push(0);
         try {
-            parseTable = new ParseTable(Files.readAllLines(Paths.get("src/main/resources/parseTable")).get(0));
+            TableFacade tf = new TableFacade();
+            parseTable = tf.init_table("src/main/resources/parseTable");
         } catch (Exception e) {
             e.printStackTrace();
         }
