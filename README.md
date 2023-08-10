@@ -11,3 +11,19 @@
 
 <img width="441" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/da35fd38-3e01-4b2d-aef7-2c863da11366">
 
+۲. برای ایجاد شیء parseTable در کلاس Parser، از سه subsystem استفاده شده است. برای کم کردن این پیچیدگی و همینطور خواناتر کردن کد می‌توانیم یک کلاس tableFacade تعریف کرده و شیء ایجاد شده را خروجی دهیم.  
+کلاس facade ایجاد شده:
+
+<img width="505" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/8a3de7cc-1961-4385-b5cd-e9588cc16cdb">
+
+تابع parser constructor پس از اعمال الگو:
+
+<img width="551" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/f9c7011b-0423-4078-a52d-22760a155527">
+
+### استفاده از polymorphism به جای شرط
+در کلاس Adress و متد toString داریم:
+
+<img width="259" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/3d799880-d2b7-4554-9d62-d883300fc1c8">
+
+همانطور که مشاهده می‌شود با توجه به تایپ شیء اعمال خروجی‌های مختلفی خواهیم داشت. برای پیروی از قانون tell-don't-ask از polymorphism استفاده می‌کنیم:
+
