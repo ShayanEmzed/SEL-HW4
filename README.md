@@ -40,7 +40,7 @@
 
 برای جدا کردن این دو منطق در زیر همین متد، متد دیگری تعریف می‌کنیم که وظیفه اضافه کردن index را به عهده داشته باشد:
 
-<img width="378" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/d3dc2c79-491b-4c3e-aba2-d082490b142a">
+<img width="738" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/b5121de0-3682-430d-a324-e47ae1f649bb">
 
 حال در فایل CodeGenerator که از تابع getNextParameter استفاده می‌کرد، پس از دریافت پارامتر مقدار index را هم افزایش می‌دهیم. با اینکار اگر چندین بار عمل query را تکرار کنیم، مثلا برای دیباگ، به مشکل runtime نمی‌خوریم و کد به درستی کامپایل می‌شود.
 
