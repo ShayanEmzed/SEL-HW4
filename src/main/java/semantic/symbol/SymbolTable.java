@@ -90,6 +90,10 @@ public class SymbolTable {
         return klasses.get(className).Methodes.get(methodName).getNextParameter();
     }
 
+    public void incrementMethodIndex(String className, String methodName) {
+        klasses.get(className).Methodes.get(methodName).incrementIndex();
+    }
+
     public void startCall(String className, String methodName) {
 //        try {
         klasses.get(className).Methodes.get(methodName).reset();
@@ -178,8 +182,10 @@ public class SymbolTable {
         }
 
         private Symbol getNextParameter() {
-            return parameters.get(orderdParameters.get(index++));
+            return parameters.get(orderdParameters.get(index));
         }
+
+        public void incrementIndex() { index += 1; }
     }
 
 }
