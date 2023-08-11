@@ -1,35 +1,30 @@
 package codeGenerator;
 
+import codeGenerator.AddressStrategy.AddressStrategy;
+import codeGenerator.AddressStrategy.DirectAddress;
+
 /**
  * Created by mohammad hosein on 6/28/2015.
  */
 
 public class Address {
     public int num;
-    public TypeAddress Type;
     public varType varType;
+    public AddressContext addressContext = new AddressContext();
 
-    public Address(int num, varType varType, TypeAddress Type) {
+    public Address(int num, varType varType, AddressStrategy addressStrategy) {
         this.num = num;
-        this.Type = Type;
+        addressContext.setAddressStrategy(addressStrategy);
         this.varType = varType;
     }
 
     public Address(int num, varType varType) {
         this.num = num;
-        this.Type = TypeAddress.Direct;
+        addressContext.setAddressStrategy(new DirectAddress());
         this.varType = varType;
     }
 
     public String toString() {
-        switch (Type) {
-            case Direct:
-                return num + "";
-            case Indirect:
-                return "@" + num;
-            case Imidiate:
-                return "#" + num;
-        }
-        return num + "";
+        return addressContext.getString(num);
     }
 }
