@@ -137,16 +137,19 @@ public class CodeGenerator {
         }
     }
 
+    private String methodName() {
+        return "main";
+    }
+
     private void defMain() {
         //ss.pop();
         memory.add3AddressCode(ss.pop().num, Operation.JP, new Address(memory.getCurrentCodeBlockAddress(), varType.Address), null, null);
-        String methodName = "main";
         String className = symbolStack.pop();
 
-        symbolTable.addMethod(className, methodName, memory.getCurrentCodeBlockAddress());
+        symbolTable.addMethod(className, methodName(), memory.getCurrentCodeBlockAddress());
 
         symbolStack.push(className);
-        symbolStack.push(methodName);
+        symbolStack.push(methodName());
     }
 
     //    public void spid(Token next){
