@@ -33,7 +33,7 @@
 
 <img width="572" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/05e96b84-d058-4bc7-9a12-01889fa8a589">
 
-### الگو Separate Query From Modifier
+### تکنیک Separate Query From Modifier
 در فایل SymbolTable، آخرین متد، برای گرفتن آخرین پارامتر (query)، مقدار index هم یکی اضافه می‌شود (command):
 
 <img width="770" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/c53bbc62-0c8b-4e8a-8244-672ba951374c">
@@ -44,5 +44,21 @@
 
 حال در فایل CodeGenerator که از تابع getNextParameter استفاده می‌کرد، پس از دریافت پارامتر مقدار index را هم افزایش می‌دهیم. با اینکار اگر چندین بار عمل query را تکرار کنیم، مثلا برای دیباگ، به مشکل runtime نمی‌خوریم و کد به درستی کامپایل می‌شود.
 
+### تکنیک Self Encapsulate Field
+کلاس lexicalAnalyzer دارای ویژگی پرایویت matcher است و همینطور در در دو متد آن دسترسی مستقیم به این ویژگی داریم. پس دو مند getter و setter تعریف می‌کنیم:
 
+<img width="401" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/11ad0031-d9d0-4cb5-8574-46ba27e60671">
 
+و در دو متد کلاس از آنها استفاده می‌کنیم:
+
+<img width="758" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/47af9522-58d5-424b-ba0f-59760c753540">
+
+### تکنیک Replace Temp with Query
+در کلاس codeGenerator و متد defMain، می‌بینیم که از متغییر موقت methodName استفاده شده است. طبق تکنیک ریفکتور replace temp with query، یک متد جدا برای گرفتن اسم متد main تعریف کرده و این متغییر را حذف می‌کنیم:
+
+<img width="980" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/d00ee5bb-2e79-4e11-b50c-4879a385a8a7">
+
+### تکنیک Inline Temp
+در کلاس Token و متد hashCode، متغییر موقت غیرضروری result تعریف شده که جز خروجی دادن کاربرد دیگه‌ای ندارد. در نتیجه می‌توان این متغییر را به صورت زیر حذف کرد:
+
+<img width="850" alt="image" src="https://github.com/ShayanEmzed/SEL-HW4/assets/60621655/ec1efb49-b8db-4549-8ba1-608ab7cff540">
